@@ -1,0 +1,40 @@
+# Node.js and dependencies
+/node_modules
+/.pnpm-store
+/package-lock.json # If you use npm, this can sometimes be ignored for clean repos
+/yarn.lock         # If you use yarn, this can sometimes be ignored for clean repos
+
+# Build outputs
+/dist
+/build
+/out
+/public/build # Common if you're serving compiled assets from a public folder
+
+# Logs and debug files
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log* # If you use Lerna for monorepos
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor-specific files
+.idea/             # IntelliJ/WebStorm project files
+.vscode/           # VS Code settings
+!.vscode/extensions.json # Keep extensions.json if you want to recommend extensions
+*.swp              # Vim swap files
+*.suo              # Visual Studio Solution User Options
+*.ntvs* # Node.js Tools for Visual Studio
+*.njsproj          # Node.js project files for Visual Studio
+*.sln              # Visual Studio Solutions
+
+# macOS specific
+.DS_Store
+
+# Caches and temporary files
+.eslintcache
+.vite/             # Vite's internal cache
