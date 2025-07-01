@@ -38,3 +38,5 @@ lerna-debug.log* # If you use Lerna for monorepos
 # Caches and temporary files
 .eslintcache
 .vite/             # Vite's internal cache
+
+.cursor/
