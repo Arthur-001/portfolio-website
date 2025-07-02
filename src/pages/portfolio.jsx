@@ -34,6 +34,14 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "Directory Tree Generator",
+      description: "A cross-platform tool that generates visual directory structures with customizable filters, exclusions, and export options. Useful for directory mapping for large scale projects.",
+      tech: ["Python", "PySide6"],
+      github: "https://github.com/Arthur-001/Directory-Tree-Generator",
+      demo: "#",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
+    },
+    {
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -159,10 +167,10 @@ const Portfolio = () => {
             </div>
 
             <div className="flex justify-center space-x-6 mt-12">
-              <a href="https://github.com/Arthur-001" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <Github className="w-6 h-6" />
+              <a href="https://github.com/Arthur-001" target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Github className="w-6 h-6" /> 
               </a>
-              <a href="https://www.linkedin.com/in/shayan-behzadisam/" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/shayan-behzadisam/" target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
                 <a
@@ -211,12 +219,13 @@ const Portfolio = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 p-8">
-                <div className="w-full h-full rounded-xl bg-gray-900 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">🚀</div>
-                    <p className="text-gray-400">Your photo here</p>
-                  </div>
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 p-1">
+                <div className="w-full h-full bg-gray-900 flex items-center justify-center rounded-2xl overflow-hidden">
+                  <img
+                    src="https://i.pinimg.com/736x/f5/16/bb/f516bb741b41c11c7d262e0e845f4fea.jpg"
+                    alt="Shayan Behzadisam profile"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -289,14 +298,15 @@ const Portfolio = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a 
-              href="mailto:your.email@example.com"
+              href="mailto:behzadisam.shayan@gmail.com"
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
             >
               <Mail className="w-5 h-5" />
               Send Message
             </a>
             <a 
-              href="#"
+              href="https://www.linkedin.com/in/shayan-behzadisam/"
+              target="_blank"
               className="px-8 py-4 border border-gray-600 rounded-full font-semibold hover:border-blue-400 hover:text-blue-400 transition-colors flex items-center justify-center gap-2"
             >
               <Linkedin className="w-5 h-5" />
