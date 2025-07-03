@@ -21,10 +21,10 @@ A modern, responsive portfolio website built with React.js, Vite, and Tailwind C
 ## Demo
 
 <!-- Add a GIF showing the main features of your portfolio here -->
-![Demo GIF](src\assets\Gifs\websitePreview.gif)
+![Demo GIF](./src/assets/Gifs/websitePreview.gif)
 
 <!-- Add a screenshot of your portfolio here -->
-![Screenshot](src\assets\images\demoImage.png)
+![Screenshot](./src/assets/images/demoImage.png)
 
 
 
