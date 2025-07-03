@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, Menu, X, Code, Palette, Zap } from 'lucide-react';
+import { CONTACT_INFO } from '../../config';
 import personalPhoto from '../assets/images/personalPhoto.jpg';
+import DirTreeGenImage from '../assets/images/huge_tree.png';
+import smartContImage from '../assets/images/smartcont.png';
+
+const GITHUB_URL = CONTACT_INFO.github;
+const LINKEDIN_URL = CONTACT_INFO.linkedin;
+const EMAIL = CONTACT_INFO.email;
+const PROJECT_DESCRIPTION_LIMIT = 180;
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,33 +45,33 @@ const Portfolio = () => {
       title: "Directory Tree Generator",
       description: "A cross-platform tool that generates visual directory structures with customizable filters, exclusions, and export options. Useful for directory mapping for large scale projects.",
       tech: ["Python", "PySide6"],
-      github: "https://github.com/Arthur-001/Directory-Tree-Generator",
+      github: `${GITHUB_URL}/Directory-Tree-Generator`,
       demo: "#",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop"
+      image: DirTreeGenImage
     },
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "#",
+      title: "DeepSeek-R1-Hospital-Assistant",
+      description: "This project develops a lightweight, specialized AI hospital assistant by fine-tuning the DeepSeek R1 1.5 Billion parameter model. Leveraging Retrieval Augmented Generation (RAG) and Low-Rank Adaptation (LoRA), we accelerate training and enhance accuracy to deliver faster, more effective answers for patients and new customers. Two distinct training methodologies are compared to optimize performance. Future plans include integration with Ollama for deploying highly specialized chatbots.",
+      tech: ["Python", "PyTorch", "Transformers", "Dataset", "PEFT", "Tokenizers", "Numpy", "Pandas", "NLTK"],
+      github: `${GITHUB_URL}/DeepSeek-R1-Hospital-Assistant`,
       demo: "#",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?q=80&w=1926&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      tech: ["React", "Firebase", "Tailwind CSS"],
-      github: "#",
+      title: "Smart-Contract-Displayer",
+      description: "An open-source project combining a backend server and a frontend interface. It aims to simplify blockchain interactions by displaying comprehensive smart contract details, functions, and events.",
+      tech: ["Node.js", "dotenv", "Express.js", "Web3.js"],
+      github: `${GITHUB_URL}/Smart-Contract-Displayer`,
       demo: "#",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1663931932716-3086b87f2ed1"
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather dashboard that displays current conditions and forecasts using OpenWeatherMap API with beautiful data visualizations.",
-      tech: ["JavaScript", "API Integration", "Chart.js"],
-      github: "#",
+      title: "Smart-Brain-Frontend",
+      description: "A web application offering user authentication (register, sign in, sign out) and allows users to submit image URLs for face detection, outlining faces with squares using the Clarifai API.",
+      tech: ["Node.js", "Express.js", "React.js", "Knex", "PostgreSQL", "cors", "bcrypt", "RESTFUL_API"],
+      github: `${GITHUB_URL}/smart_brain_frontend`,
       demo: "#",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=250&fit=crop"
+      image: "https://plus.unsplash.com/premium_photo-1661293884144-d11c90f334ce"
     }
   ];
 
@@ -167,20 +175,20 @@ const Portfolio = () => {
             </div>
 
             <div className="flex justify-center space-x-6 mt-12">
-              <a href="https://github.com/Arthur-001" target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href={GITHUB_URL} target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Github className="w-6 h-6" /> 
               </a>
-              <a href="https://www.linkedin.com/in/shayan-behzadisam/" target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href={LINKEDIN_URL} target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
-                <a
-                href="mailto:behzadisam.shayan@gmail.com?subject=Contact%20from%20Portfolio&body=Hi%20Shayan%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you."
+              <a
+                href={`mailto:${EMAIL}?subject=Contact%20from%20Portfolio&body=Hi%20Shayan%2C%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.`}
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="Send email to Shayan Behzadisam"
                 title="Send email to Shayan Behzadisam"
-                >
+              >
                 <Mail className="w-6 h-6" />
-                </a>
+              </a>
             </div>
           </div>
         </div>
@@ -240,19 +248,21 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-                <div className="aspect-video bg-gradient-to-br from-blue-500/20 to-purple-600/20">
+              <div key={index} className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 flex flex-col relative min-h-[420px]">
+                <div className="aspect-video w-full bg-gray-900 rounded-t-xl overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                
-                <div className="p-6">
+                <div className="flex-1 flex flex-col p-6 pb-16">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                  <p className="text-gray-400 mb-4">{project.description}</p>
-                  
+                  <p className="text-gray-400 mb-4" title={project.description}>
+                    {project.description.length > PROJECT_DESCRIPTION_LIMIT
+                      ? project.description.slice(0, PROJECT_DESCRIPTION_LIMIT - 3) + '...'
+                      : project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
                       <span 
@@ -263,23 +273,23 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <div className="flex gap-4">
-                    <a 
-                      href={project.github}
-                      className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
-                    <a 
-                      href={project.demo}
-                      className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Demo
-                    </a>
-                  </div>
+                </div>
+                <div className="absolute left-0 bottom-0 w-full px-6 pb-6 flex gap-4">
+                  <a 
+                    href={project.github}
+                    target='blank'
+                    className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    Code
+                  </a>
+                  <a 
+                    href={project.demo}
+                    className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Demo
+                  </a>
                 </div>
               </div>
             ))}
@@ -298,14 +308,14 @@ const Portfolio = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a 
-              href="mailto:behzadisam.shayan@gmail.com"
+              href={`mailto:${EMAIL}`}
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
             >
               <Mail className="w-5 h-5" />
               Send Message
             </a>
             <a 
-              href="https://www.linkedin.com/in/shayan-behzadisam/"
+              href={LINKEDIN_URL}
               target="_blank"
               className="px-8 py-4 border border-gray-600 rounded-full font-semibold hover:border-blue-400 hover:text-blue-400 transition-colors flex items-center justify-center gap-2"
             >
