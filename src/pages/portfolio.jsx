@@ -4,6 +4,7 @@ import { CONTACT_INFO } from '../../config';
 import personalPhoto from '../assets/images/personalPhoto.jpg';
 import DirTreeGenImage from '../assets/images/huge_tree.png';
 import smartContImage from '../assets/images/smartcont.png';
+import ContactModal from '../components/ContactForm/contactForm';
 
 const GITHUB_URL = CONTACT_INFO.github;
 const LINKEDIN_URL = CONTACT_INFO.linkedin;
@@ -305,15 +306,8 @@ const Portfolio = () => {
             I'm always interested in new opportunities and exciting projects. 
             Let's discuss how we can bring your ideas to life!
           </p>
-          
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href={`mailto:${EMAIL}`}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-            >
-              <Mail className="w-5 h-5" />
-              Send Message
-            </a>
+            <ContactModal />
             <a 
               href={LINKEDIN_URL}
               target="_blank"
