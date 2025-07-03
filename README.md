@@ -21,7 +21,7 @@ A modern, responsive portfolio website built with React.js, Vite, and Tailwind C
 ## Demo
 
 <!-- Add a GIF showing the main features of your portfolio here -->
-![Demo GIF](./assets/demo.gif)
+![Demo GIF](src\assets\Gifs\websitePreview.gif)
 
 <!-- Add a screenshot of your portfolio here -->
 ![Screenshot](src\assets\images\demoImage.png)
@@ -50,7 +50,7 @@ A modern, responsive portfolio website built with React.js, Vite, and Tailwind C
 
 ```bash
 # Clone the repository
-https://github.com/YOUR_GITHUB_USERNAME/portfolio-website.git
+git clone https://github.com/Arthur-001/portfolio-website.git
 cd portfolio-website
 
 # Install dependencies
@@ -81,6 +81,7 @@ The app will be available at [http://localhost:5173](http://localhost:5173)
 │   │   ├───📁icons
 │   │   └───📁images
 │   │       ├───demoImage.png
+│   │       ├───devIcon.png
 │   │       ├───DirectoryTreeGenerator1.png
 │   │       ├───huge_tree.png
 │   │       ├───personalPhoto.jpg
@@ -96,8 +97,10 @@ The app will be available at [http://localhost:5173](http://localhost:5173)
 │   ├───App.jsx
 │   ├───index.css
 │   └───main.jsx
+├───.firebaserc
 ├───.gitignore
 ├───eslint.config.js
+├───firebase.json
 ├───index.html
 ├───package-lock.json
 ├───package.json
