@@ -40,3 +40,4 @@ lerna-debug.log* # If you use Lerna for monorepos
 .vite/             # Vite's internal cache
 
 .cursor/
+.firebase

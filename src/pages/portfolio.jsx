@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, Menu, X, Code, Palette, Zap } from 'lucide-react';
 import { CONTACT_INFO } from '../../config';
 import personalPhoto from '../assets/images/personalPhoto.jpg';
 import DirTreeGenImage from '../assets/images/huge_tree.png';
-import smartContImage from '../assets/images/smartcont.png';
 import ContactModal from '../components/ContactForm/contactForm';
 
 const GITHUB_URL = CONTACT_INFO.github;
@@ -14,11 +13,13 @@ const PROJECT_DESCRIPTION_LIMIT = 180;
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
+      const scrollPosition = window.scrollY + navbarHeight + 1;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -37,7 +38,12 @@ const Portfolio = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const top = element.offsetTop - navbarHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
     setIsMenuOpen(false);
   };
 
@@ -85,7 +91,7 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
+      <nav ref={navbarRef} className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
