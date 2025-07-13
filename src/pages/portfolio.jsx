@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Download, Menu, X, Code, Palette, Zap } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Download, Menu, X, Code, Palette, Zap, Database } from 'lucide-react';
 import { CONTACT_INFO } from '../../config';
 import personalPhoto from '../assets/images/personalPhoto.jpg';
 import DirTreeGenImage from '../assets/images/huge_tree.png';
@@ -175,10 +175,6 @@ const Portfolio = () => {
               >
                 View My Work
               </button>
-              <button className="px-8 py-3 border border-gray-600 rounded-full font-semibold hover:border-blue-400 hover:text-blue-400 transition-colors flex items-center justify-center gap-2">
-                <Download className="w-4 h-4" />
-                Download Resume
-              </button>
             </div>
 
             <div className="flex justify-center space-x-6 mt-12">
@@ -300,6 +296,43 @@ const Portfolio = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {/* Node.js */}
+            <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full mb-4 bg-green-500/20">
+                <Zap className="w-10 h-10 text-green-500" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Node.js</h3>
+            </div>
+            {/* Next.js */}
+            <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full mb-4 bg-gray-500/20">
+                <Code className="w-10 h-10 text-gray-300" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Next.js</h3>
+            </div>
+            {/* React.js */}
+            <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full mb-4 bg-blue-500/20">
+                <Code className="w-10 h-10 text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">React.js</h3>
+            </div>
+            {/* PostgreSQL */}
+            <div className="flex flex-col items-center bg-gray-800 rounded-2xl p-8 shadow-lg hover:scale-105 transition-transform">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full mb-4 bg-blue-800/20">
+                <Database className="w-10 h-10 text-blue-800" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">PostgreSQL</h3>
+            </div>
           </div>
         </div>
       </section>
