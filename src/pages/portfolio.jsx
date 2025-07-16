@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Palette, Zap, Database } from 'lucide-react';
 import { CONTACT_INFO } from '../../config';
 import personalPhoto from '../assets/images/personalPhoto.jpg';
-import DirTreeGenImage from '../assets/images/huge_tree.png';
+import DirTreeGenImage from '../assets/images/huge_tree.webp';
 import ContactModal from '../components/ContactForm/contactForm';
+import { Helmet } from 'react-helmet';
 
 const GITHUB_URL = CONTACT_INFO.github;
 const LINKEDIN_URL = CONTACT_INFO.linkedin;
@@ -90,6 +91,31 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
+      <Helmet>
+        <title>Shayan Behzadisam - Experienced IT Manager, AI Specialist, Full-Stack Developer, and Data Analyst</title>
+        <meta name="description" content="Shayan Behzadisam: Experienced IT Manager, AI Specialist, Full-Stack Developer, and Data Analyst. Explore my portfolio, projects, and skills in web, mobile, and AI development." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Shayan Behzadisam",
+            "jobTitle": "Experienced IT Manager, AI Specialist, Full-Stack Developer, and Data Analyst",
+            "url": "https://shayan-behzadisam.web.app/",
+            "sameAs": [
+              "https://www.linkedin.com/in/shayan-behzadisam/"
+            ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Istanbul Beykent University",
+              "department": "Computer Engineering"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Freelance"
+            }
+          }
+        `}</script>
+      </Helmet>
       {/* Navigation */}
       <nav ref={navbarRef} className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +173,7 @@ const Portfolio = () => {
                 <div className="w-82 h-82 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
                     <img
                         src={personalPhoto}
-                        alt="Personal"
+                        alt="Portrait of Shayan Behzadisam, experienced IT Manager, AI Specialist, Full-Stack Developer, and Data Analyst"
                         className="w-80 h-80 rounded-full object-cover border-0 border-gray-900"
                     />
                 </div>
@@ -160,11 +186,11 @@ const Portfolio = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Full-Stack Developer & UI/UX Designer
+              Full-Stack Developer | UI/UX Designer |<br></br> AI specialist |  Data Analyst | IT Manager
             </p>
             
             <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-              I create beautiful, functional web applications and user experiences. 
+              I create beautiful, functional web/mobile applications and user experiences. 
               Passionate about clean code, modern design, and solving complex problems.
             </p>
 
@@ -177,7 +203,7 @@ const Portfolio = () => {
               </button>
             </div>
 
-            <div className="flex justify-center space-x-6 mt-12">
+            <div className="flex justify-center space-x-6 mt-12 mb-16 md:mb-0">
               <a href={GITHUB_URL} target="_blank" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Github className="w-6 h-6" /> 
               </a>
@@ -205,9 +231,9 @@ const Portfolio = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-300 mb-6">
-                I'm a passionate full-stack developer with 3+ years of experience creating 
-                web applications that combine beautiful design with robust functionality. 
-                I love turning complex problems into simple, elegant solutions.
+              I am an experienced AI, mobile, and web developer with a strong background in data analysis. 
+              In addition to my technical expertise, I have held the position of IT Manager at Final Okulları, overseeing projects 
+              and teams to deliver efficient and innovative technology solutions.
               </p>
               <p className="text-lg text-gray-300 mb-8">
                 When I'm not coding, you'll find me exploring new technologies, contributing 
@@ -234,7 +260,7 @@ const Portfolio = () => {
                 <div className="w-full h-full bg-gray-900 flex items-center justify-center rounded-2xl overflow-hidden">
                   <img
                     src="https://i.pinimg.com/736x/f5/16/bb/f516bb741b41c11c7d262e0e845f4fea.jpg"
-                    alt="Shayan Behzadisam profile"
+                    alt="Profile of Shayan Behzadisam, IT Manager, AI Specialist, Full-Stack Developer, and Data Analyst"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -255,7 +281,7 @@ const Portfolio = () => {
                 <div className="aspect-video w-full bg-gray-900 rounded-t-xl overflow-hidden">
                   <img 
                     src={project.image} 
-                    alt={project.title}
+                    alt={`Screenshot of ${project.title} by Shayan Behzadisam`}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -311,10 +337,18 @@ const Portfolio = () => {
               <div className="grid grid-cols-2 gap-6">
                 <SkillCard name="React.js" icon={<Code className="w-8 h-8 text-blue-400" />} />
                 <SkillCard name="Next.js" icon={<Code className="w-8 h-8 text-gray-300" />} />
-                <SkillCard name="Node.js" icon={<Zap className="w-8 h-8 text-green-500" />} />
                 <SkillCard name="Express.js" icon={<Zap className="w-8 h-8 text-yellow-400" />} />
                 <SkillCard name="REST API" icon={<ExternalLink className="w-8 h-8 text-indigo-400" />} />
+              </div>
+            </div>
+            {/* Cross-Platform Development Group */}
+            <div className="bg-gray-800 rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2"><Palette className="w-6 h-6 text-cyan-400" /> Cross-Platform Development</h3>
+              <div className="grid grid-cols-2 gap-6">
                 <SkillCard name="Flutter" icon={<Palette className="w-8 h-8 text-cyan-400" />} />
+                <SkillCard name="Dart" icon={<Code className="w-8 h-8 text-blue-500" />} />
+                <SkillCard name="React Native" icon={<Code className="w-8 h-8 text-purple-400" />} />
+                <SkillCard name="Node.js" icon={<Zap className="w-8 h-8 text-green-500" />} />
               </div>
             </div>
             {/* AI / ML Group */}
@@ -342,6 +376,8 @@ const Portfolio = () => {
               <div className="grid grid-cols-2 gap-6">
                 <SkillCard name="Docker" icon={<Zap className="w-8 h-8 text-cyan-400" />} />
                 <SkillCard name="Linux" icon={<Zap className="w-8 h-8 text-gray-400" />} />
+                <SkillCard name="AWS" icon={<Zap className="w-8 h-8 text-orange-500" />} />
+                <SkillCard name="Azure" icon={<Zap className="w-8 h-8 text-blue-500" />} />
               </div>
             </div>
           </div>
