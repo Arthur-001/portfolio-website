@@ -18,7 +18,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'about', 'projects', 'skills', 'contact'];
       const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
       const scrollPosition = window.scrollY + navbarHeight + 1;
 
@@ -39,13 +39,20 @@ const Portfolio = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
     const element = document.getElementById(sectionId);
     if (element) {
-      const top = element.offsetTop - navbarHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
+      let scrollTo = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      // On mobile, close menu first, then scroll
+      if (window.innerWidth < 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+        setTimeout(() => {
+          window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+        }, 250);
+      } else {
+        window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+      }
     }
-    setIsMenuOpen(false);
   };
 
   const projects = [
@@ -126,7 +133,7 @@ const Portfolio = () => {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'projects', 'contact'].map((item) => (
+              {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -151,7 +158,7 @@ const Portfolio = () => {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-gray-800">
-              {['home', 'about', 'projects', 'contact'].map((item) => (
+              {['home', 'about', 'projects', 'skills', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
